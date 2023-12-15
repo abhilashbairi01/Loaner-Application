@@ -1,0 +1,2019 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Basic flow for assigning work on a loaner laptop</description>
+        <internal_name>loaner_laptop</internal_name>
+        <label_cache>[{"name":"68c58ec4-5122-45b6-adad-83ed68fc6517.state","label":"4 - Wait For Condition➛State","reference_display":"State","type":"choice","base_type":"choice","choices":[{"label":"Complete","value":"0","order":0.0},{"label":"Timeout","value":"1","order":1.0}],"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2e334039-7a20-4ead-9148-909988f1a7e4"}},{"name":"7029f477-0869-4cb9-acc1-e69e25d4103e.state","label":"1 - Wait For Condition➛State","reference_display":"State","type":"choice","base_type":"choice","choices":[{"label":"Complete","value":"0","order":0.0},{"label":"Timeout","value":"1","order":1.0}],"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2e334039-7a20-4ead-9148-909988f1a7e4"}},{"name":"Created or Updated_1.current.state","label":"Trigger - Record Created or Updated➛Loaner Request Record➛State","reference":"","reference_display":"State","type":"choice","base_type":"choice","parent_table_name":"x_cdltd_loaner_req_loaner_request","column_name":"state","choices":[{"rawLabel":"Requested","selected":false,"label":"Requested","missing":false,"image":"","used":false,"reference":false,"value":"13","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Reserved","selected":false,"label":"Reserved","missing":false,"image":"","used":false,"reference":false,"value":"14","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Deployment Prep","selected":false,"label":"Deployment Prep","missing":false,"image":"","used":false,"reference":false,"value":"15","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Ready for Pickup","selected":false,"label":"Ready for Pickup","missing":false,"image":"","used":false,"reference":false,"value":"16","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Checked Out","selected":false,"label":"Checked Out","missing":false,"image":"","used":false,"reference":false,"value":"17","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Post Deployment","selected":false,"label":"Post Deployment","missing":false,"image":"","used":false,"reference":false,"value":"18","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Closed Complete","selected":false,"label":"Closed Complete","missing":false,"image":"","used":false,"reference":false,"value":"3","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}}]},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Loaner Request Record","reference":"x_cdltd_loaner_req_loaner_request","reference_display":"Loaner Request","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
+        <master_snapshot>e519117a9f0331107f44c120d224ab90</master_snapshot>
+        <name>Loaner laptop</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>a4be1dfe9f0331107f44c120d224ab3f</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:33:06</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>118399f29f0331107f44c120d224ab67</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Loaner laptop</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name>sys_hub_flow_118399f29f0331107f44c120d224ab67</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:56</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=118399f29f0331107f44c120d224ab67"/>
+    <sys_variable_value action="delete_multiple" query="document_key=118399f29f0331107f44c120d224ab67"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_cdltd_loaner_req_loaner_request">item_type=cmdb_ci_computer^state=14<item display_value="Laptop" endquery="false" field="item_type" goto="false" newquery="false" operator="=" or="false" value="cmdb_ci_computer"/>
+            <item display_value="Reserved" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="14"/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>true</on_update>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 07:21:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a4be1dfe9f0331107f44c120d224ab3f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <table>x_cdltd_loaner_req_loaner_request</table>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>118399f29f0331107f44c120d224ab67</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 07:21:55</sys_created_on>
+        <sys_id>20be1dfe9f0331107f44c120d224ab40</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <trigger display_value="">a4be1dfe9f0331107f44c120d224ab3f</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=118399f29f0331107f44c120d224ab67^sys_idNOT IN20be1dfe9f0331107f44c120d224ab40"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=118399f29f0331107f44c120d224ab67^sys_idNOT INd1099d3a9f0331107f44c120d224abb6"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <name>Created or Updated</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>d1099d3a9f0331107f44c120d224abb6</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=d1099d3a9f0331107f44c120d224abb6"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>d1099d3a9f0331107f44c120d224abb6</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>15099d3a9f0331107f44c120d224abb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <value>item_type=cmdb_ci_computer^state=14</value>
+        <variable display_value="Condition">707dd180c32222002841b63b12d3aecb</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>d1099d3a9f0331107f44c120d224abb6</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>1d099d3a9f0331107f44c120d224abb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">cf1e1980c32222002841b63b12d3aea0</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=d1099d3a9f0331107f44c120d224abb6"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=118399f29f0331107f44c120d224ab67"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=118399f29f0331107f44c120d224ab67^sys_idNOT IN1d8399f29f0331107f44c120d224ab68"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>118399f29f0331107f44c120d224ab67</id>
+        <name>Loaner laptop</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:33:06</sys_created_on>
+        <sys_id>1d8399f29f0331107f44c120d224ab68</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:33:06</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=1d8399f29f0331107f44c120d224ab68"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=118399f29f0331107f44c120d224ab67^sys_idNOT IN15099d3a9f0331107f44c120d224abb1,41099d3a9f0331107f44c120d224aba9,5d099d3a9f0331107f44c120d224abad"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</model>
+        <model_id>118399f29f0331107f44c120d224ab67</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>15099d3a9f0331107f44c120d224abb1</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</model>
+        <model_id>118399f29f0331107f44c120d224ab67</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>41099d3a9f0331107f44c120d224aba9</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</model>
+        <model_id>118399f29f0331107f44c120d224ab67</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>5d099d3a9f0331107f44c120d224abad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=118399f29f0331107f44c120d224ab67^sys_idNOT IN11099d3a9f0331107f44c120d224abe1,55099d3a9f0331107f44c120d224abd9,6d099d3a9f0331107f44c120d224abe7,99099d3a9f0331107f44c120d224abca,dd099d3a9f0331107f44c120d224abd2,e9099d3a9f0331107f44c120d224abed"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>11099d3a9f0331107f44c120d224abe1</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>68c58ec4-5122-45b6-adad-83ed68fc6517</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=11099d3a9f0331107f44c120d224abe1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>11099d3a9f0331107f44c120d224abe1</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>91099d3a9f0331107f44c120d224abe3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>11099d3a9f0331107f44c120d224abe1</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>dd099d3a9f0331107f44c120d224abe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>state=18</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=11099d3a9f0331107f44c120d224abe1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>11099d3a9f0331107f44c120d224abe1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>99099d3a9f0331107f44c120d224abe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>11099d3a9f0331107f44c120d224abe1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>d5099d3a9f0331107f44c120d224abe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>11099d3a9f0331107f44c120d224abe1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>5d099d3a9f0331107f44c120d224abe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=11099d3a9f0331107f44c120d224abe1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=11099d3a9f0331107f44c120d224abe1"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <comment>Ready for pickup</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>55099d3a9f0331107f44c120d224abd9</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>a156a46a-b70d-46e7-ac7b-71d43f19a880</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=55099d3a9f0331107f44c120d224abd9"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>55099d3a9f0331107f44c120d224abd9</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>15099d3a9f0331107f44c120d224abdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>state=16</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>55099d3a9f0331107f44c120d224abd9</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>d5099d3a9f0331107f44c120d224abdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=55099d3a9f0331107f44c120d224abd9"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>55099d3a9f0331107f44c120d224abd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>91099d3a9f0331107f44c120d224abdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>55099d3a9f0331107f44c120d224abd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>1d099d3a9f0331107f44c120d224abda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>55099d3a9f0331107f44c120d224abd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>dd099d3a9f0331107f44c120d224abda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=55099d3a9f0331107f44c120d224abd9"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=55099d3a9f0331107f44c120d224abd9"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Create Task">2b3a6335531003003bf1d9109ec58759</action_type>
+        <action_type_parent/>
+        <comment>Post deployment</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>6d099d3a9f0331107f44c120d224abe7</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>8e168ab5-4baf-4ed3-9b90-66ca6c8f5225</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=6d099d3a9f0331107f44c120d224abe7"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6d099d3a9f0331107f44c120d224abe7</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>69099d3a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_task</value>
+        <variable display_value="Table">e73a6335531003003bf1d9109ec5875c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6d099d3a9f0331107f44c120d224abe7</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>a5099d3a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:19:53</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Wait">ff3a6335531003003bf1d9109ec58777</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=6d099d3a9f0331107f44c120d224abe7"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>6d099d3a9f0331107f44c120d224abe7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>25099d3a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>parent={{Created or Updated_1.current}}^priority=3^short_description=Perform the post deployment task</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_table</field>
+        <id>6d099d3a9f0331107f44c120d224abe7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>61099d3a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>wait</field>
+        <id>6d099d3a9f0331107f44c120d224abe7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>ad099d3a9f0331107f44c120d224abe8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:19:53</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>{{68c58ec4-5122-45b6-adad-83ed68fc6517.state}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6d099d3a9f0331107f44c120d224abe7"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6d099d3a9f0331107f44c120d224abe7"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>99099d3a9f0331107f44c120d224abca</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>7029f477-0869-4cb9-acc1-e69e25d4103e</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=99099d3a9f0331107f44c120d224abca"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>99099d3a9f0331107f44c120d224abca</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>91099d3a9f0331107f44c120d224abce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>99099d3a9f0331107f44c120d224abca</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>dd099d3a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <value>state=15</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=99099d3a9f0331107f44c120d224abca"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>99099d3a9f0331107f44c120d224abca</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>99099d3a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>99099d3a9f0331107f44c120d224abca</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>91099d3a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>99099d3a9f0331107f44c120d224abca</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>5d099d3a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=99099d3a9f0331107f44c120d224abca"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=99099d3a9f0331107f44c120d224abca"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Create Task">2b3a6335531003003bf1d9109ec58759</action_type>
+        <action_type_parent/>
+        <comment>Deployment prep</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>dd099d3a9f0331107f44c120d224abd2</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>10c0ca19-7b00-4a29-81b2-54fe20363e93</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=dd099d3a9f0331107f44c120d224abd2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>dd099d3a9f0331107f44c120d224abd2</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>51099d3a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_task</value>
+        <variable display_value="Table">e73a6335531003003bf1d9109ec5875c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>dd099d3a9f0331107f44c120d224abd2</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>9d099d3a9f0331107f44c120d224abd4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:16:30</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Wait">ff3a6335531003003bf1d9109ec58777</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=dd099d3a9f0331107f44c120d224abd2"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>dd099d3a9f0331107f44c120d224abd2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>1d099d3a9f0331107f44c120d224abd4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>parent={{Created or Updated_1.current}}^priority=3^short_description=Prepare the laptop for deployment</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_table</field>
+        <id>dd099d3a9f0331107f44c120d224abd2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>59099d3a9f0331107f44c120d224abd4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>wait</field>
+        <id>dd099d3a9f0331107f44c120d224abd2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>95099d3a9f0331107f44c120d224abd4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:19:53</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>{{7029f477-0869-4cb9-acc1-e69e25d4103e.state}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=dd099d3a9f0331107f44c120d224abd2^sys_idNOT IN323e5dbe9f0331107f44c120d224ab7d"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>wait</input_name>
+        <instance>dd099d3a9f0331107f44c120d224abd2</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"wait":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 07:19:53</sys_created_on>
+        <sys_id>323e5dbe9f0331107f44c120d224ab7d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:19:53</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=dd099d3a9f0331107f44c120d224abd2"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <comment>closed complete</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</flow>
+        <order>6</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>e9099d3a9f0331107f44c120d224abed</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:22:51</sys_updated_on>
+        <ui_id>385a6851-1713-40db-87cf-f3509571581f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=e9099d3a9f0331107f44c120d224abed"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>e9099d3a9f0331107f44c120d224abed</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>25099d3a9f0331107f44c120d224abef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>state=3</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>e9099d3a9f0331107f44c120d224abed</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>e5099d3a9f0331107f44c120d224abef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=e9099d3a9f0331107f44c120d224abed"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>e9099d3a9f0331107f44c120d224abed</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>a1099d3a9f0331107f44c120d224abef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>e9099d3a9f0331107f44c120d224abed</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>2d099d3a9f0331107f44c120d224abee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>e9099d3a9f0331107f44c120d224abed</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:08</sys_created_on>
+        <sys_id>ed099d3a9f0331107f44c120d224abee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=e9099d3a9f0331107f44c120d224abed"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=e9099d3a9f0331107f44c120d224abed"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=118399f29f0331107f44c120d224ab67"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67^sys_idNOT IN19099d3a9f0331107f44c120d224abb3,95099d3a9f0331107f44c120d224abb0,9d099d3a9f0331107f44c120d224abac"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>19099d3a9f0331107f44c120d224abb3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>95099d3a9f0331107f44c120d224abb0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:07</sys_created_on>
+        <sys_id>9d099d3a9f0331107f44c120d224abac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:07</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_118399f29f0331107f44c120d224ab67"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_118399f29f0331107f44c120d224ab67"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_118399f29f0331107f44c120d224ab67"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=118399f29f0331107f44c120d224ab67^sys_idNOT INca19517a9f0331107f44c120d224ab4b"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"ca19517a9f0331107f44c120d224ab4b","name":"plan","plan_signature":null}}</plan>
+        <plan_id>118399f29f0331107f44c120d224ab67</plan_id>
+        <snapshot>82ee91329f4331107f44c120d224ab7d</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ca19517a9f0331107f44c120d224ab4b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <trigger display_value="">a4be1dfe9f0331107f44c120d224ab3f</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=118399f29f0331107f44c120d224ab67"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Basic flow for assigning work on a loaner laptop</description>
+        <internal_name>loaner_laptop</internal_name>
+        <label_cache>[{"name":"68c58ec4-5122-45b6-adad-83ed68fc6517.state","label":"4 - Wait For Condition➛State","reference_display":"State","type":"choice","base_type":"choice","choices":[{"label":"Complete","value":"0","order":0.0},{"label":"Timeout","value":"1","order":1.0}],"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2e334039-7a20-4ead-9148-909988f1a7e4"}},{"name":"7029f477-0869-4cb9-acc1-e69e25d4103e.state","label":"1 - Wait For Condition➛State","reference_display":"State","type":"choice","base_type":"choice","choices":[{"label":"Complete","value":"0","order":0.0},{"label":"Timeout","value":"1","order":1.0}],"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2e334039-7a20-4ead-9148-909988f1a7e4"}},{"name":"Created or Updated_1.current.state","label":"Trigger - Record Created or Updated➛Loaner Request Record➛State","reference":"","reference_display":"State","type":"choice","base_type":"choice","parent_table_name":"x_cdltd_loaner_req_loaner_request","column_name":"state","choices":[{"rawLabel":"Requested","selected":false,"label":"Requested","missing":false,"image":"","used":false,"reference":false,"value":"13","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Reserved","selected":false,"label":"Reserved","missing":false,"image":"","used":false,"reference":false,"value":"14","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Deployment Prep","selected":false,"label":"Deployment Prep","missing":false,"image":"","used":false,"reference":false,"value":"15","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Ready for Pickup","selected":false,"label":"Ready for Pickup","missing":false,"image":"","used":false,"reference":false,"value":"16","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Checked Out","selected":false,"label":"Checked Out","missing":false,"image":"","used":false,"reference":false,"value":"17","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Post Deployment","selected":false,"label":"Post Deployment","missing":false,"image":"","used":false,"reference":false,"value":"18","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}},{"rawLabel":"Closed Complete","selected":false,"label":"Closed Complete","missing":false,"image":"","used":false,"reference":false,"value":"3","parameters":{"name":"x_cdltd_loaner_req_loaner_request"}}]},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛Loaner Request Record","reference":"x_cdltd_loaner_req_loaner_request","reference_display":"Loaner Request","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
+        <master>true</master>
+        <name>Loaner laptop</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Loaner laptop">118399f29f0331107f44c120d224ab67</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e519117a9f0331107f44c120d224ab90</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=e519117a9f0331107f44c120d224ab90"/>
+    <sys_variable_value action="delete_multiple" query="document_key=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=e519117a9f0331107f44c120d224ab90^sys_idNOT IN7519117a9f0331107f44c120d224abea"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <name>Created or Updated</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7519117a9f0331107f44c120d224abea</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:55</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=7519117a9f0331107f44c120d224abea"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>7519117a9f0331107f44c120d224abea</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>bd19117a9f0331107f44c120d224abeb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">cf1e1980c32222002841b63b12d3aea0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>7519117a9f0331107f44c120d224abea</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>f919117a9f0331107f44c120d224abeb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>item_type=cmdb_ci_computer^state=14</value>
+        <variable display_value="Condition">707dd180c32222002841b63b12d3aecb</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_output_a45d9180c32222002841b63b12d3aea7^id=7519117a9f0331107f44c120d224abea"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=e519117a9f0331107f44c120d224ab90"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=e519117a9f0331107f44c120d224ab90^sys_idNOT INe519117a9f0331107f44c120d224ab91"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>e519117a9f0331107f44c120d224ab90</id>
+        <name>Loaner laptop</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>e519117a9f0331107f44c120d224ab91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:24</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=e519117a9f0331107f44c120d224ab91"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=e519117a9f0331107f44c120d224ab90^sys_idNOT IN6119117a9f0331107f44c120d224aba9,6d19117a9f0331107f44c120d224ab92,a519117a9f0331107f44c120d224abb1"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</model>
+        <model_id>e519117a9f0331107f44c120d224ab90</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>6119117a9f0331107f44c120d224aba9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</model>
+        <model_id>e519117a9f0331107f44c120d224ab90</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>6d19117a9f0331107f44c120d224ab92</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</model>
+        <model_id>e519117a9f0331107f44c120d224ab90</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>a519117a9f0331107f44c120d224abb1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=e519117a9f0331107f44c120d224ab90^sys_idNOT IN2919117a9f0331107f44c120d224abcc,6119117a9f0331107f44c120d224abd4,6519117a9f0331107f44c120d224abe2,6d19117a9f0331107f44c120d224abc3,7519117a9f0331107f44c120d224abe8,a519117a9f0331107f44c120d224abdb"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Create Task">2b3a6335531003003bf1d9109ec58759</action_type>
+        <action_type_parent display_value="Create Task">3f9b1ff1531003003bf1d9109ec58775</action_type_parent>
+        <comment>Deployment prep</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2919117a9f0331107f44c120d224abcc</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>10c0ca19-7b00-4a29-81b2-54fe20363e93</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=2919117a9f0331107f44c120d224abcc"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2919117a9f0331107f44c120d224abcc</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2519117a9f0331107f44c120d224abce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_task</value>
+        <variable display_value="Table">e73a6335531003003bf1d9109ec5875c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2919117a9f0331107f44c120d224abcc</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6119117a9f0331107f44c120d224abce</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Wait">ff3a6335531003003bf1d9109ec58777</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=2919117a9f0331107f44c120d224abcc"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>2919117a9f0331107f44c120d224abcc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>ed19117a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>parent={{Created or Updated_1.current}}^priority=3^short_description=Prepare the laptop for deployment</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_table</field>
+        <id>2919117a9f0331107f44c120d224abcc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2d19117a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>wait</field>
+        <id>2919117a9f0331107f44c120d224abcc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6919117a9f0331107f44c120d224abcd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>{{7029f477-0869-4cb9-acc1-e69e25d4103e.state}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=2919117a9f0331107f44c120d224abcc^sys_idNOT IN9cbed9fe9f0331107f44c120d224ab93"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>wait</input_name>
+        <instance>2919117a9f0331107f44c120d224abcc</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"wait":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 07:21:54</sys_created_on>
+        <sys_id>9cbed9fe9f0331107f44c120d224ab93</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=2919117a9f0331107f44c120d224abcc"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <comment>Ready for pickup</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6119117a9f0331107f44c120d224abd4</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>a156a46a-b70d-46e7-ac7b-71d43f19a880</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=6119117a9f0331107f44c120d224abd4"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6119117a9f0331107f44c120d224abd4</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6d19117a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6119117a9f0331107f44c120d224abd4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>a919117a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>state=16</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=6119117a9f0331107f44c120d224abd4"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>6119117a9f0331107f44c120d224abd4</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2919117a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>6119117a9f0331107f44c120d224abd4</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>a119117a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>6119117a9f0331107f44c120d224abd4</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6519117a9f0331107f44c120d224abd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6119117a9f0331107f44c120d224abd4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6119117a9f0331107f44c120d224abd4"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Create Task">2b3a6335531003003bf1d9109ec58759</action_type>
+        <action_type_parent display_value="Create Task">3f9b1ff1531003003bf1d9109ec58775</action_type_parent>
+        <comment>Post deployment</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6519117a9f0331107f44c120d224abe2</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>8e168ab5-4baf-4ed3-9b90-66ca6c8f5225</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=6519117a9f0331107f44c120d224abe2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6519117a9f0331107f44c120d224abe2</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7119117a9f0331107f44c120d224abe4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_task</value>
+        <variable display_value="Table">e73a6335531003003bf1d9109ec5875c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6519117a9f0331107f44c120d224abe2</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>bd19117a9f0331107f44c120d224abe3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Wait">ff3a6335531003003bf1d9109ec58777</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=6519117a9f0331107f44c120d224abe2"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>6519117a9f0331107f44c120d224abe2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>3d19117a9f0331107f44c120d224abe3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>parent={{Created or Updated_1.current}}^priority=3^short_description=Perform the post deployment task</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_table</field>
+        <id>6519117a9f0331107f44c120d224abe2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7919117a9f0331107f44c120d224abe3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>wait</field>
+        <id>6519117a9f0331107f44c120d224abe2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>a519117a9f0331107f44c120d224abe3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <table>var__m_sys_hub_action_input_2b3a6335531003003bf1d9109ec58759</table>
+        <value>{{68c58ec4-5122-45b6-adad-83ed68fc6517.state}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6519117a9f0331107f44c120d224abe2"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6519117a9f0331107f44c120d224abe2"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent display_value="Wait For Condition">8bb9a8160b10030085c083eb37673aec</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6d19117a9f0331107f44c120d224abc3</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>7029f477-0869-4cb9-acc1-e69e25d4103e</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=6d19117a9f0331107f44c120d224abc3"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6d19117a9f0331107f44c120d224abc3</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2d19117a9f0331107f44c120d224abc5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>state=15</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>6d19117a9f0331107f44c120d224abc3</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>ed19117a9f0331107f44c120d224abc5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=6d19117a9f0331107f44c120d224abc3"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>6d19117a9f0331107f44c120d224abc3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>e519117a9f0331107f44c120d224abc5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>6d19117a9f0331107f44c120d224abc3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2519117a9f0331107f44c120d224abc5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>6d19117a9f0331107f44c120d224abc3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>a919117a9f0331107f44c120d224abc5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6d19117a9f0331107f44c120d224abc3"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6d19117a9f0331107f44c120d224abc3"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <comment>closed complete</comment>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>6</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7519117a9f0331107f44c120d224abe8</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>385a6851-1713-40db-87cf-f3509571581f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=7519117a9f0331107f44c120d224abe8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>7519117a9f0331107f44c120d224abe8</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7119117a9f0331107f44c120d224abea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>7519117a9f0331107f44c120d224abe8</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>bd19117a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>state=3</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=7519117a9f0331107f44c120d224abe8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>7519117a9f0331107f44c120d224abe8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>3d19117a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>7519117a9f0331107f44c120d224abe8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>b519117a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>7519117a9f0331107f44c120d224abe8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>7919117a9f0331107f44c120d224abe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=7519117a9f0331107f44c120d224abe8"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=7519117a9f0331107f44c120d224abe8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent display_value="Wait For Condition">8bb9a8160b10030085c083eb37673aec</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Loaner laptop">e519117a9f0331107f44c120d224ab90</flow>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>a519117a9f0331107f44c120d224abdb</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 07:21:54</sys_updated_on>
+        <ui_id>68c58ec4-5122-45b6-adad-83ed68fc6517</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=a519117a9f0331107f44c120d224abdb"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>a519117a9f0331107f44c120d224abdb</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2919117a9f0331107f44c120d224abdd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>x_cdltd_loaner_req_loaner_request</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>a519117a9f0331107f44c120d224abdb</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6519117a9f0331107f44c120d224abdd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <value>state=18</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=a519117a9f0331107f44c120d224abdb"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>a519117a9f0331107f44c120d224abdb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2119117a9f0331107f44c120d224abdd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>a519117a9f0331107f44c120d224abdb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>6d19117a9f0331107f44c120d224abdc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{Created or Updated_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>a519117a9f0331107f44c120d224abdb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>e119117a9f0331107f44c120d224abdd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=a519117a9f0331107f44c120d224abdb"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=a519117a9f0331107f44c120d224abdb"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=e519117a9f0331107f44c120d224ab90"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90^sys_idNOT IN2119117a9f0331107f44c120d224abb6,6919117a9f0331107f44c120d224aba5,ad19117a9f0331107f44c120d224abad"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:25</sys_created_on>
+        <sys_id>2119117a9f0331107f44c120d224abb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:25</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>6919117a9f0331107f44c120d224aba5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:24</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-15 06:57:24</sys_created_on>
+        <sys_id>ad19117a9f0331107f44c120d224abad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">1c3916b19fc331107f44c120d224ab42</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">1c3916b19fc331107f44c120d224ab42</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-15 06:57:24</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_e519117a9f0331107f44c120d224ab90"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_e519117a9f0331107f44c120d224ab90"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_e519117a9f0331107f44c120d224ab90"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>118399f29f0331107f44c120d224ab67</sys_id>
+        <latest_snapshot>e519117a9f0331107f44c120d224ab90</latest_snapshot>
+        <compiler_build>glide-utah-12-21-2022__patch2-hotfix2-05-08-2023_05-09-2023_1540.zip</compiler_build>
+    </sys_hub_flow>
+</record_update>
